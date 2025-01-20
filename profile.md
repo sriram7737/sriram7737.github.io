@@ -30,14 +30,16 @@ Dynamic and results-driven **AI Developer** with a Master’s degree in Computer
 ---
 
 ## 🎩 Technical Skill Levels
-| Skill          | Mastery                                                             |
-| -------------- | ------------------------------------------------------------------- |
-| **Python**     | ![Python](https://progress-bar.dev/95/?title=Python)               |
-| **Java**       | ![Java](https://progress-bar.dev/80/?title=Java)                   |
-| **SQL**        | ![SQL](https://progress-bar.dev/90/?title=SQL)                     |
-| **PyTorch**    | ![PyTorch](https://progress-bar.dev/85/?title=PyTorch)             |
-| **TensorFlow** | ![TensorFlow](https://progress-bar.dev/80/?title=TensorFlow)       |
-| **NLTK**       | ![NLTK](https://progress-bar.dev/88/?title=NLTK)                   |
+
+| Skill           | Mastery                                                                                                  |
+|-----------------|----------------------------------------------------------------------------------------------------------|
+| **Python**      | ![Python 95%](https://img.shields.io/badge/Python-95%25-brightgreen?style=flat&logo=python&logoColor=white) |
+| **Java**        | ![Java 80%](https://img.shields.io/badge/Java-80%25-orange?style=flat&logo=openjdk&logoColor=white)        |
+| **SQL**         | ![SQL 90%](https://img.shields.io/badge/SQL-90%25-blue?style=flat&logo=postgresql&logoColor=white)         |
+| **PyTorch**     | ![PyTorch 85%](https://img.shields.io/badge/PyTorch-85%25-red?style=flat&logo=pytorch&logoColor=white)     |
+| **TensorFlow**  | ![TensorFlow 80%](https://img.shields.io/badge/TensorFlow-80%25-FF6F00?style=flat&logo=tensorflow&logoColor=white) |
+| **NLTK**        | ![NLTK 88%](https://img.shields.io/badge/NLTK-88%25-success?style=flat&logo=python&logoColor=white)         |
+
 
 <details>
   <summary>More Tools & Frameworks</summary>
