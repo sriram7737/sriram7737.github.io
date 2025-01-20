@@ -9,10 +9,11 @@
 
 # <img src="https://cdn-icons-png.flaticon.com/512/3968/3968223.png" width="40" height="40" style="vertical-align:middle;margin-right:8px;" /> **SRIRAM RAMPELLI**
 **Farmington, MI 48335**  
-[![LinkedIn](https://img.shields.io/badge/-LinkedIn-0A66C2?logo=Linkedin&logoColor=white&style=flat)](#) 
-[![GitHub](https://img.shields.io/badge/-GitHub-000?logo=github&logoColor=white&style=flat)](#)
-[![Email](https://img.shields.io/badge/-Email-D14836?logo=Gmail&logoColor=white&style=flat)](#)
-[![Portfolio](https://img.shields.io/badge/-Portfolio-6f42c1?logo=buffer&logoColor=white&style=flat)](#)  
+[![LinkedIn](https://img.shields.io/badge/-LinkedIn-0A66C2?logo=Linkedin&logoColor=white&style=flat)](https://www.linkedin.com/in/sriram-rampelli-b41a75178/)
+[![GitHub](https://img.shields.io/badge/-GitHub-000?logo=github&logoColor=white&style=flat)](https://github.com/sriram7737)
+[![Email](https://img.shields.io/badge/-Email-D14836?logo=Gmail&logoColor=white&style=flat)](mailto:sriramrampelli15@gmail.com)
+[![Portfolio](https://img.shields.io/badge/-Portfolio-6f42c1?logo=buffer&logoColor=white&style=flat)](https://bold.pro/my/sriram-rampelli-231201163204)
+
 Phone: **248-986-6414**
 
 ---
