@@ -2,497 +2,514 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sriram Rampelli - Generative AI Developer</title>
-  <!-- Google Fonts for a clean, modern look -->
-  <link rel="preconnect" href="https://fonts.gstatic.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Source+Code+Pro:wght@400;700&display=swap" rel="stylesheet" />
-  
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sriram Rampelli – AI Engineer Portfolio</title>
+  <!-- Google Font for a modern, clean look -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
-    /* Reset some default browser styles */
+    /* Root variables for a cohesive, “magical” palette */
+    :root {
+      --primary-color: #4b6cb7;
+      --secondary-color: #182848;
+      --accent-color: #ff9a9e;
+      --light-gray: #f3f4f6;
+      --dark-gray: #333;
+      --card-bg: #ffffff;
+      --shadow-color: rgba(0, 0, 0, 0.1);
+    }
+
+    /* Global reset and typography */
     * {
-      margin: 0; 
-      padding: 0; 
       box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
-
-    html, body {
-      height: 100%;
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #1f1c2c, #928dab);
-      color: #f3f3f3;
-      overflow-x: hidden;
+      line-height: 1.6;
+      color: var(--dark-gray);
+      background: var(--light-gray);
+    }
+    a {
+      color: var(--primary-color);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    a:hover {
+      color: var(--accent-color);
+    }
+    h1, h2, h3, h4 {
+      color: var(--secondary-color);
+      margin-bottom: 0.5rem;
+      line-height: 1.2;
+    }
+    p {
+      margin-bottom: 1rem;
     }
 
-    /* Container */
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 2rem;
-    }
-
-    header, main, footer {
-      margin-bottom: 2rem;
-    }
-
-    /* Name + Title Section with a Typewriter Animation */
-    .hero {
-      text-align: center;
-      margin-bottom: 2rem;
+    /* Smooth section spacing */
+    section {
+      padding: 4rem 2rem;
       position: relative;
     }
-
-    .name {
-      font-size: 2.5rem;
-      font-weight: 600;
-      letter-spacing: 1px;
+    /* Add subtle fade-in on scroll */
+    section {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
-    .tagline {
-      color: #fbd786;
-      font-weight: 400;
-      font-size: 1.2rem;
-      margin: 0.5rem 0 1.5rem 0;
-      font-family: 'Source Code Pro', monospace;
-      white-space: nowrap;
-      overflow: hidden;
-      border-right: 2px solid rgba(255, 255, 255, 0.75);
-      width: 0;
-      /* Tagline length: 12.5em in steps(40, end) = should be shorter than ~25-28 chars */
-      animation: typing 3s steps(40, end) forwards, blink 0.75s infinite step-end alternate;
-    }
-
-    @keyframes typing {
-      from { width: 0; }
-      to { width: 12.5em; }
-    }
-
-    @keyframes blink {
-      50% { border-color: transparent; }
-    }
-
-    /* Badge Links */
-    .badges {
-      display: flex;
-      justify-content: center;
-      gap: 0.75rem;
-      margin: 1rem 0 2rem 0;
-      flex-wrap: wrap;
-    }
-    .badges a img {
-      height: 28px;
-    }
-
-    /* Section Headings */
-    h2 {
-      font-size: 1.75rem;
+    /* Hero section with gradient background */
+    .hero {
+  text-align: center;
+  padding: 6rem 2rem 8rem;      /* <-- added extra bottom padding (8rem) */
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: #fff;
+  border-bottom-left-radius: 50% 10%;
+  border-bottom-right-radius: 50% 10%;
+  margin-bottom: 3rem;
+  position: relative;
+  overflow: hidden;
+}
+    .hero h1 {
+      font-size: 3rem;
       margin-bottom: 1rem;
+      font-weight: 700;
+    }
+    .hero p {
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto 1.5rem;
+    }
+    .hero .btn {
+  background: #fff;
+  color: var(--secondary-color);
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-radius: 30px;
+  box-shadow: 0 4px 10px var(--shadow-color);
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+  margin-top: 2rem;             /* <-- ensure the button sits lower */
+}
+    .hero .btn:hover {
+      background: var(--accent-color);
       color: #fff;
+      transform: translateY(-2px);
+    }
+
+    /* Container to center content */
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+
+    /* Section titles */
+    h2 {
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      text-align: center;
       position: relative;
     }
     h2::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -5px;
-      width: 80px;
-      height: 3px;
-      background: #fbd786;
-      border-radius: 4px;
+      content: '';
+      width: 60px;
+      height: 4px;
+      background: var(--accent-color);
+      display: block;
+      margin: 0.5rem auto 0;
+      border-radius: 2px;
     }
 
-    /* Skill Bars */
-    .skills-table {
-      width: 100%;
-      margin: 1rem 0;
-      border-collapse: collapse;
-    }
-    .skills-table th,
-    .skills-table td {
-      padding: 0.5rem;
-      text-align: left;
-    }
-    .skill-bar-container {
-      background: rgba(255,255,255,0.15);
-      border-radius: 12px;
-      overflow: hidden;
-      margin-top: 0.5rem;
-    }
-    .skill-bar {
-      height: 14px;
-      border-radius: 12px;
-      background: linear-gradient(to right, #ffb75e, #ed8f03);
-      width: 0;
-      animation: fillBar 2s forwards;
-    }
-    @keyframes fillBar {
-      from { width: 0; }
-      to { width: var(--skill-level); }
-    }
-
-    /* Collapsible Sections */
-    details {
-      background: rgba(255,255,255,0.1);
-      margin-bottom: 1rem;
-      border-radius: 6px;
-      padding: 0.75rem;
-      cursor: pointer;
-    }
-    details summary {
-      font-weight: 600;
-      font-size: 1.1rem;
+    /* Skills list */
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      justify-content: center;
       list-style: none;
-      outline: none;
+      padding: 0;
     }
-    details p, details ul {
-      margin-top: 0.5rem;
-      line-height: 1.5;
+    .skills-list li {
+      background: #fff;
+      padding: 0.6rem 1rem;
+      border-radius: 30px;
+      font-size: 0.95rem;
+      box-shadow: 0 2px 8px var(--shadow-color);
+      transition: transform 0.2s;
+    }
+    .skills-list li:hover {
+      transform: translateY(-3px);
     }
 
-    /* Footer Magic */
+    /* Certifications list */
+    .cert-list {
+      max-width: 600px;
+      margin: 0 auto;
+      list-style: none;
+      padding: 0;
+    }
+    .cert-list li {
+      background: #fff;
+      margin: 0.5rem 0;
+      padding: 0.75rem 1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px var(--shadow-color);
+      font-size: 0.95rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* Grid layout for cards (projects & competitions) */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 15px var(--shadow-color);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 20px var(--shadow-color);
+    }
+    .card h4 {
+      font-size: 1.25rem;
+      margin-bottom: 0.75rem;
+      font-weight: 600;
+    }
+    .card p {
+      flex-grow: 1;
+      font-size: 0.95rem;
+    }
+    .card .btn {
+      background: var(--primary-color);
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border-radius: 30px;
+      text-align: center;
+      font-size: 0.9rem;
+      align-self: flex-start;
+      margin-top: 1rem;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .card .btn:hover {
+      background: var(--accent-color);
+      transform: translateY(-2px);
+    }
+
+    /* Experience & Education lists */
+    .detail-list {
+      list-style: none;
+      padding: 0;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .detail-list li {
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+    }
+    .detail-list h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+    .detail-list ul {
+      list-style: disc inside;
+      padding-left: 1rem;
+    }
+
+    /* Contact icons */
+    .contact-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    .contact-links a img {
+      width: 36px;
+      height: 36px;
+      filter: drop-shadow(0 2px 5px var(--shadow-color));
+      transition: transform 0.2s;
+    }
+    .contact-links a img:hover {
+      transform: scale(1.1);
+    }
+
+    /* Footer styling */
     footer {
       text-align: center;
       font-size: 0.9rem;
-      opacity: 0.8;
-    }
-    footer img {
-      width: 60px;
-      margin-top: 1rem;
+      padding: 1.5rem 0;
+      color: var(--dark-gray);
+      border-top: 1px solid #e0e0e0;
+      background: #fff;
+      margin-top: 3rem;
     }
   </style>
 </head>
-
 <body>
+  <!-- Hero Section -->
+  <div class="hero">
+    <h1>Sriram Rampelli</h1>
+    <p>AI Engineer | Generative AI | LLMs | Computer Vision | Data Engineering</p>
+    <p>
+      Master’s in Computer Science (Dec 2024) – Lawrence Technological University | F1 Visa (seeks sponsorship)<br/>
+      <a href="#contact" class="btn">Let’s Connect</a>
+    </p>
+  </div>
+
   <div class="container">
-    <header class="hero">
-      <div class="name">SRIRAM RAMPELLI</div>
-      <!-- Updated Tagline Here -->
-      <!-- <div class="tagline" id="tagline">Generative AI Visionary</div> *\-->
-      
-      <div class="badges">
-        <a href="https://www.linkedin.com/in/sriram-rampelli-b41a75178/" target="_blank" rel="noopener">
-          <img src="https://img.shields.io/badge/-LinkedIn-0A66C2?logo=Linkedin&logoColor=white&style=flat" alt="LinkedIn" />
+    <!-- About Section -->
+    <section id="about">
+      <h2>About Me</h2>
+      <p>
+        I’m an AI/ML Engineer with a Master’s in Computer Science who excels at building and fine-tuning large language models and vision-language systems—often on limited local hardware. By leveraging techniques such as 4-bit quantization, LoRA, and QLoRA adapters, I make state-of-the-art models run efficiently on an NVIDIA 3050 Ti. My projects span RAG pipelines with Hugging Face, Flask-based healthcare chatbots analyzing DICOM images, and end-to-end deployment on constrained GPUs.
+      </p>
+      <p>
+        At Wipro Technologies, I designed ML-driven monitoring frameworks that reduced system errors by 35%. As a Research Assistant at Lawrence Tech (May 2024 – Dec 2024), I fine-tuned LLaMA &amp; BioBERT for clinical NLP and published my thesis at IEEE CCWC 2025. I thrive at the intersection of research and production—balancing model performance with hardware constraints to deliver impactful AI solutions.
+      </p>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+      <h2>Core Skills &amp; Technologies</h2>
+      <ul class="skills-list">
+        <li>Python (NumPy, Pandas, scikit-learn)</li>
+        <li>PyTorch &amp; TensorFlow</li>
+        <li>Hugging Face Transformers</li>
+        <li>4-bit Quantization, LoRA, QLoRA</li>
+        <li>LangChain &amp; LlamaIndex (RAG Pipelines)</li>
+        <li>Computer Vision (CLIP, TinyLlama-VLM)</li>
+        <li>Flask &amp; FastAPI Deployment</li>
+        <li>Docker &amp; Kubernetes Basics</li>
+        <li>SQL, PostgreSQL &amp; Vector DBs (FAISS, Pinecone)</li>
+        <li>AWS (S3, EC2, Lambda)</li>
+        <li>CI/CD (GitHub Actions, Jenkins)</li>
+      </ul>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications">
+      <h2>Certifications</h2>
+      <ul class="cert-list">
+        <li>
+          <span>NVIDIA-Certified Associate: Generative AI &amp; LLMs</span>
+          
+        </li>
+        <li>
+          <span>Oracle Cloud Infrastructure 2024 Generative AI Certified Professional</span>
+        
+        </li>
+      </ul>
+    </section>
+
+    <!-- Competitions Section -->
+    <section id="competitions">
+      <h2>Competitions</h2>
+      <div class="cards-grid">
+        <!-- RSNA 2024 Lumbar Spine Classification Card -->
+        <div class="card">
+          <h4>RSNA 2024 Lumbar Spine Classification</h4>
+          <p>
+            Contributed to the RSNA 2024 competition by developing a convolutional neural network to classify lumbar spine degenerative conditions. Leveraged data augmentation, ensemble learning, and optimized inference on limited-GPU hardware to achieve over 92% accuracy. All code—preprocessing, model training, and evaluation—is available in the GitHub repository.
+          </p>
+          <p><strong>Tech:</strong> PyTorch, Keras, NumPy, OpenCV, Docker, AWS S3.</p>
+          <a href="https://github.com/sriram7737/RSNA2024" class="btn" target="_blank">View On Github</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+      <h2>Highlighted AI/ML Projects</h2>
+      <div class="cards-grid">
+        <!-- 1. TinyLlama-VLM-LoRA -->
+        <div class="card">
+          <h4>TinyLlama-VLM-LoRA</h4>
+          <p>
+            A vision-language model fine-tuned from TinyLlama (1.1B) using LoRA adapters on Flickr30k image-caption pairs. Integrates a frozen CLIP ViT encoder to convert image features into “vision tokens” for TinyLlama, enabling zero-shot captioning. Evaluation scripts include BLEU, ROUGE, F1, and perplexity.
+          </p>
+          <p><strong>Tech:</strong> TinyLlama, LoRA, CLIP (ViT-Base), PyTorch, Hugging Face Transformers.</p>
+          <a href="https://github.com/sriram7737/TinyLlama-VLM-LoRA" class="btn" target="_blank">View on GitHub</a>
+        </div>
+
+        <!-- 2. RESEARCH_OF_AI_IN_HEALTHCARE -->
+        <div class="card">
+          <h4>RESEARCH_OF_AI_IN_HEALTHCARE</h4>
+          <p>
+            A curated set of literature reviews, experiment scripts, and Jupyter notebooks exploring AI applications in healthcare—ranging from medical image segmentation to NLP for clinical notes and predictive modeling for patient outcomes.
+          </p>
+          <p><strong>Tech:</strong> Python, Jupyter Notebooks, TensorFlow, scikit-learn, OpenCV, medical imaging libraries.</p>
+          <a href="https://github.com/sriram7737/RESEARCH_OF_AI_IN_HEALTHACARE" class="btn" target="_blank">View on GitHub</a>
+        </div>
+
+        <!-- 3. AI-Call-Center-Prototype-Faster-Whisper-TinyLLaMA-Demo -->
+        <div class="card">
+          <h4>AI Call Center Prototype (Faster-Whisper &amp; TinyLLaMA)</h4>
+          <p>
+            Demonstrates real-time audio transcription via Faster Whisper integrated with TinyLLaMA to generate context-aware responses. Simulates an AI-powered call-center agent: transcribing customer speech, interpreting intent with TinyLLaMA, and returning automated replies.
+          </p>
+          <p><strong>Tech:</strong> Faster Whisper, TinyLLaMA, PyTorch, Flask, WebSocket streaming.</p>
+          <a href="https://github.com/sriram7737/AI-Call-Center-Prototype-Faster-Whisper-TinyLLaMA-Demo" class="btn" target="_blank">View on GitHub</a>
+        </div>
+
+        <!-- 4. TRASHPRED- -->
+        <div class="card">
+          <h4>TRASHPRED</h4>
+          <p>
+            A transformer-based RGB image classifier to distinguish recyclable vs. non-recyclable items. Trained on a custom waste-image dataset, achieving 92%+ accuracy. Includes data augmentation pipelines and inference scripts deployed via Hugging Face.
+          </p>
+          <p><strong>Tech:</strong> PyTorch, Hugging Face Transformers, FastAPI, AWS S3 (data storage).</p>
+          <a href="https://github.com/sriram7737/TRASHPRED-" class="btn" target="_blank">View on GitHub</a>
+        </div>
+
+        <!-- 5. Multi-Source-Data-Analytics-Chatbot -->
+        <div class="card">
+          <h4>Multi-Source Data Analytics Chatbot</h4>
+          <p>
+            A Flask-based chatbot that ingests CSV, Excel, PDF, DOCX, JSON, XML, images, and DICOM files—generating histograms, bar charts, pie charts; performing sentiment analysis, summarization, and prescription parsing. Integrated with a fine-tuned GPT-2 model for open-domain Q&amp;A.
+          </p>
+          <p><strong>Tech:</strong> Python, Flask, PyTorch, GPT-2, OpenAI API, DICOM processing, pandas, matplotlib.</p>
+          <a href="https://github.com/sriram7737/Multi-Source-Data-Analytics-Chatbot" class="btn" target="_blank">View on GitHub</a>
+        </div>
+
+        <!-- 6. openai_poetry_app -->
+        <div class="card">
+          <h4>OpenAI Poetry App</h4>
+          <p>
+            A web application that generates custom poetry using OpenAI’s GPT-3/4 models. Users input prompts and receive stylistically coherent poems. Includes an interactive front end for prompt refinement and a feedback loop for continuous model improvements.
+          </p>
+          <p><strong>Tech:</strong> OpenAI API, Streamlit, Python, Docker.</p>
+          <a href="https://github.com/sriram7737/openai_poetry_app" class="btn" target="_blank">View on GitHub</a>
+        </div>
+
+        <!-- 7. Chatbot (Corrected) -->
+        <div class="card">
+          <h4>AI Healthcare Chatbot</h4>
+          <p>
+            A Flask-based AI Chatbot for healthcare applications. It answers general medical queries via GPT-2 and Wikipedia, and features a prescription-analysis module that uses <code>en_sci_md</code> to extract structured data (e.g., patient DOB, medications, dosages) from prescription PDFs. Also supports voice input via a speech-to-text interface and generates visual summaries (charts for vitals or medication usage).
+          </p>
+          <p><strong>Tech:</strong> Flask, Python, spaCy, NLTK, PyTorch (GPT-2), <code>en_sci_md</code>, SpeechRecognition, Pandas, Matplotlib.</p>
+          <a href="https://github.com/sriram7737/Chatbot" class="btn" target="_blank">View on GitHub</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+      <h2>Professional Experience</h2>
+      <ul class="detail-list">
+        <li>
+          <h3>AI Intern – BCG GenAI Job Simulation | Feb 2025</h3>
+          <ul>
+            <li>Developed an AI-powered financial chatbot that automated SEC 10-K data extraction, reducing manual effort by 40%.</li>
+            <li>Implemented NLP-based structured data extraction using spaCy and pandas.</li>
+            <li>Automated financial sentiment analysis, increasing decision-making efficiency by 25% for financial teams.</li>
+            <li>Explored retrieval-augmented solutions aligned with RAG principles to support dynamic query responses.</li>
+          </ul>
+        </li>
+        <li>
+          <h3>Research Assistant – Lawrence Technological University | May 2024 – Dec 2024</h3>
+          <ul>
+            <li>Developed an LLM-powered healthcare chatbot integrating fine-tuned LLaMA &amp; enhanced BioBERT, improving medical Q&amp;A accuracy by 23%.</li>
+            <li>Designed custom data pipelines to handle noisy clinical text, boosting OCR-based medical-condition recognition by 35% on local hardware (NVIDIA 3050 Ti) via 4-bit quantization and LoRA adapters.</li>
+            <li>Published thesis at IEEE CCWC 2025:  
+              <a href="https://doi.org/10.1109/CCWC62904.2025.10903815" target="_blank">“Empowering Healthcare Data Systems with an Innovative Chatbot Application Utilizing Python and Advanced Generative AI Models”</a>.
+            </li>
+            <li>Investigated vector-based retrieval techniques to enhance chatbot performance.</li>
+          </ul>
+        </li>
+        <li>
+          <h3>Project Engineer – Wipro Technologies | Nov 2021 – Dec 2022</h3>
+          <ul>
+            <li>Developed an ML-driven anomaly detection system, reducing system log errors by 35%.</li>
+            <li>Optimized system performance by 27% through an ML-driven monitoring framework.</li>
+            <li>Managed 300+ test procedures &amp; 100+ Agile sprints, ensuring high-quality releases.</li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Education & Publications Section -->
+    <section id="education">
+      <h2>Education &amp; Publications</h2>
+      <ul class="detail-list">
+        <li>
+          <h3>Master of Science in Computer Science | Lawrence Technological University | Dec 2024</h3>
+          <ul>
+            <li><strong>Relevant Coursework:</strong> Deep Learning, NLP, Computer Vision, Data Mining, Advanced Algorithms.</li>
+            <li><strong>Thesis / Publication:</strong>  
+              Rampelli, S. (2025). <em>Empowering Healthcare Data Systems with an Innovative Chatbot Application Utilizing Python and Advanced Generative AI Models.</em>  
+              Presented at IEEE CCWC 2025.  
+              <a href="https://doi.org/10.1109/CCWC62904.2025.10903815" target="_blank">doi:10.1109/CCWC62904.2025.10903815</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+      <h2>Get in Touch</h2>
+      <p>
+        I’m actively seeking AI/ML engineering roles (F1 Visa, open to sponsorship). If you’re building generative AI products, vision-language models, or data pipelines, let’s chat!
+      </p>
+      <div class="contact-links">
+        <a href="mailto:sriramrampelli15@gmail.com" title="Email">
+          <img src="https://unpkg.com/simple-icons@v8/icons/gmail.svg" alt="Email Icon" />
         </a>
-        <a href="https://github.com/sriram7737" target="_blank" rel="noopener">
-          <img src="https://img.shields.io/badge/-GitHub-000?logo=github&logoColor=white&style=flat" alt="GitHub" />
+        <a href="https://github.com/sriram7737" target="_blank" title="GitHub">
+          <img src="https://unpkg.com/simple-icons@v8/icons/github.svg" alt="GitHub Icon" />
         </a>
-        <a href="mailto:sriramrampelli15@gmail.com" target="_blank" rel="noopener">
-          <img src="https://img.shields.io/badge/-Email-D14836?logo=Gmail&logoColor=white&style=flat" alt="Email" />
+        <a href="https://www.linkedin.com/in/sriram-rampelli/" target="_blank" title="LinkedIn">
+          <img src="https://unpkg.com/simple-icons@v8/icons/linkedin.svg" alt="LinkedIn Icon" />
         </a>
-        <a href="https://bold.pro/my/sriram-rampelli-231201163204" target="_blank" rel="noopener">
-          <img src="https://img.shields.io/badge/-Portfolio-6f42c1?logo=buffer&logoColor=white&style=flat" alt="Portfolio" />
+        <a href="https://huggingface.co/sriram7737" target="_blank" title="Hugging Face">
+          <img src="https://unpkg.com/simple-icons@v8/icons/huggingface.svg" alt="Hugging Face Icon" />
         </a>
       </div>
+    </section>
 
-      <p>Farmington, MI 48335 • Phone: 248-986-6414</p>
-    </header>
-
-    <main>
-      <!-- Professional Summary -->
-      <section>
-        <h2>Professional Summary</h2>
-        <p>
-            As a recent graduate of Lawrence Technological University, I specialize in <strong>Artificial Intelligence</strong> with a particular emphasis on <em> AI and fine-tuned transformer models</em>. My academic and professional journey is fueled by a passion for advancing AI technologies and applying them to solve real-world problems.
-
-            <em>I recently presented my research on healthcare-focused chatbot systems</em> at the <strong>IEEE Computing and Communication Workshop and Conference (CCWC) 2025</strong>. This research showcased the development of a novel chatbot application integrating fine-tuned models like <EM>LLaMA and enhanced BioBERT</EM> to address complex medical queries, document analysis, and prescription digitization. This project emphasized scalability, real-world deployment, and ethical considerations like HIPAA and GDPR compliance.
-            
-            With a strong foundation in <strong>Python</strong>, <strong>SQL</strong>, and cutting-edge frameworks such as <strong>PyTorch</strong>, <strong>TensorFlow</strong>, and <strong>Hugging Face Transformers</strong>, I have developed and implemented scalable AI systems, including healthcare chatbots and customer interaction tools. My expertise also includes optimizing <STRONG>data analysis pipelines</STRONG>, <STRONG>integrating advanced OCR techniques</STRONG>, and leveraging multimodal AI models for high-impact solutions.
-            
-            I am certified in NVIDIA's Generative AI and LLM frameworks and Oracle Cloud Infrastructure's Generative AI professional certifications. My technical skills, combined with a commitment to continuous learning, enable me to bridge the gap between theoretical AI advancements and practical applications, delivering meaningful outcomes.
-        </p>
-
-        <section>
-            <h2>Publications and Achivements</h2>
-            <p>
-                <li> <strong>Rampelli, S. (2025)</strong>: <em>Empowering Healthcare Data Systems with 
-              an Innovative Chatbot Application Utilizing Python and Advanced Generative AI Models.</li>
-              <li></em> Presented at <strong>IEEE CCWC 2025</strong>, showcasing innovative AI-driven 
-              solutions for healthcare data systems.</li>
-             <li>participated in the RSNA 2024 Lumbar Spine Degenerative Classification competition
-                 on Kaggle, where I created a pipeline for analyzing DICOM images. Employing convolutional neural
-                  networks and advanced preprocessing, I built accurate models for medical imaging diagnostics.
-                This project honed my expertise in computer vision, a domain closely aligned with work in
-               health technologies. </li>
-            </p>
-      </section>
-
-      <!-- Certifications -->
-      <section>
-        <h2>Certifications</h2>
-        <ul>
-          <li>Oracle Cloud Infrastructure 2024 Generative AI Certified Professional</li>
-          <li>NVIDIA-Certified Associate: Generative AI and LLMs</li>
-        </ul>
-      </section>
-
-      <!-- Technical Skills -->
-      <section>
-        <h2>Technical Skill Levels</h2>
-        <table class="skills-table">
-          <tr>
-            <th>Skill</th>
-            <th>Mastery</th>
-          </tr>
-          <tr>
-            <td>Python</td>
-            <td>
-              <div class="skill-bar-container">
-                <div class="skill-bar" style="--skill-level:95%"></div>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>Java</td>
-            <td>
-              <div class="skill-bar-container">
-                <div class="skill-bar" style="--skill-level:80%"></div>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>SQL</td>
-            <td>
-              <div class="skill-bar-container">
-                <div class="skill-bar" style="--skill-level:90%"></div>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>PyTorch</td>
-            <td>
-              <div class="skill-bar-container">
-                <div class="skill-bar" style="--skill-level:85%"></div>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>TensorFlow</td>
-            <td>
-              <div class="skill-bar-container">
-                <div class="skill-bar" style="--skill-level:80%"></div>
-              </div>
-            </td>
-          </tr>
-          <tr>
-            <td>NLTK</td>
-            <td>
-              <div class="skill-bar-container">
-                <div class="skill-bar" style="--skill-level:88%"></div>
-              </div>
-            </td>
-          </tr>
-        </table>
-
-        <details>
-          <summary>More Tools & Frameworks</summary>
-          <ul>
-            <li>Scikit-Learn, Flask, BeautifulSoup</li>
-            <li>Llama-3.2-1B, BioBERT, OpenAI API, Transformers</li>
-            <li>Oracle, SQLAlchemy</li>
-            <li>Spring Boot, VaderSentiment</li>
-          </ul>
-        </details>
-      </section>
-
-
-
-     <section>
-  <h2>Work Experience</h2>
-  
-  <details>
-    <summary>AI Intern – BCG GenAI Job Simulation</summary>
-    <p><em>Forage | February 2025</em></p>
-    <ul>
-      <li>Developed an AI-powered financial chatbot for BCG’s GenAI Consulting team.</li>
-      <li>Extracted and analyzed complex financial data from 10-K &amp; 10-Q reports to provide automated insights.</li>
-      <li>Leveraged rule-based logic &amp; Python (pandas, NLTK) to create a chatbot that interprets financial statements.</li>
-      <li>Enhanced chatbot performance by implementing NLP techniques for structured financial data retrieval.</li>
-    </ul>
-  </details>
-  
-  <details>
-    <summary>Research Assistant – AI in Healthcare</summary>
-    <p><em>Lawrence Technological University | May 2024 – December 2024</em></p>
-    <ul>
-      <li>Conducted NLP-based analysis of medical records, focusing on AI-driven automation in healthcare.</li>
-      <li>Built an integration of Lama and BioBERT-powered model for extracting key clinical insights from unstructured medical text.</li>
-      <li>Designed a diagnosis automation pipeline, improving clinical text processing efficiency by 35%.</li>
-      <li>Published research in IEEE CCWC 2025, exploring AI applications in healthcare data systems.</li>
-    </ul>
-  </details>
-  
-  <details open>
-    <summary>Project Engineer – Wipro Technologies, Hyderabad, India</summary>
-    <p><em>November 2021 – December 2022</em></p>
-    <ul>
-      <li> Developed an AI-based anomaly detection system, reducing system log errors by 35%.</li>
-      <li>Optimized system performance by 27% through ML-driven monitoring framework</li>
-      <li>Conducted comprehensive systems analysis, improving over 20 critical workflow areas.</li>
-      <li>Managed 300+ test procedures &amp; 100+ Agile sprint projects, ensuring high-quality, timely deployments.</li>
-    </ul>
-  </details>
-  
-<!-- Academic Projects -->
-<section>
-  <h2>Academic Projects</h2>
-
-  <!-- 1) Empowering Healthcare Data Systems with an Innovative Chatbot Application -->
-  <details>
-    <summary>
-      Empowering Healthcare Data Systems with an Innovative Chatbot Application 
-      <a href="https://github.com/sriram7737/RESEARCH_OF_AI_IN_HEALTHACARE" target="_blank" rel="noopener" style="font-size: 0.8em; color: #fbd786;">[GitHub]</a>
-    </summary>
-    <p>
-      Developed an innovative healthcare chatbot application that leverages advanced 
-      Generative AI models, including fine-tuned LLaMA and enhanced BioBERT, to address 
-      challenges in healthcare data accessibility, patient engagement, and operational 
-      efficiency. The system integrates state-of-the-art NLP techniques, modular 
-      architecture, and ethical AI practices to deliver scalable, real-world solutions.
-    </p>
-    <ul>
-      <li><strong>Medical Query Resolution:</strong> Fine-tuned LLaMA using 150,000 
-        curated medical Q&A pairs, achieving an 88% Exact Match Score (EM) and 91% F1-Score.</li>
-      <li><strong>Prescription Analysis:</strong> Enhanced BioBERT with custom NER layers 
-        for extracting medications, dosages, and patient details from prescriptions 
-        using OCR and advanced preprocessing techniques.</li>
-      <li><strong>Document &amp; Image Analysis:</strong> Supported multi-format data, 
-        including PDFs, DICOM files, and handwritten medical prescriptions.</li>
-      <li><strong>Personalized Recommendations:</strong> Provided condition-specific 
-        insights, improving patient interaction and satisfaction.</li>
-    </ul>
-    <p><strong>Technical Highlights:</strong></p>
-    <ul>
-      <li>Achieved a response time of 1.2 seconds, significantly faster than existing 
-          solutions like MedChat and Dr. AI.</li>
-      <li>Designed a scalable architecture using Flask, Docker, and Kubernetes for 
-          asynchronous processing and optimized model serving.</li>
-      <li>Ensured compliance with HIPAA and GDPR for ethical AI implementation.</li>
-    </ul>
-    <p>
-      <strong>Tools &amp; Technologies:</strong> Python, Flask, PyTorch, Hugging Face, 
-      OpenCV, Pydicom, Docker, Kubernetes, TensorFlow Serving
-    </p>
-    <p>
-      <strong>Impact:</strong> Improved user satisfaction with a score of 4.6/5 in 
-      studies with healthcare professionals and patients, demonstrating potential 
-      for real-world deployment by reducing operational inefficiencies 
-      and enhancing patient care.
-    </p>
-  </details>
-  <!-- 2) RSNA 2024 Lumbar Spine Degenerative Classification (Kaggle Competition Participant) -->
-  <details>
-    <summary>
-      RSNA 2024 Lumbar Spine Degenerative Classification (Kaggle Competition Participant)
-      <a href="https://github.com/sriram7737/RSNA2024" target="_blank" rel="noopener" style="font-size: 0.8em; color: #fbd786;">[GitHub]</a>
-    </summary>
-    <ul>
-      <li>Developed models to detect and classify degenerative spine conditions using lumbar spine MR images.</li>
-      <li>Contributed among 1,874 teams with improved accuracy using data augmentation &amp; ensemble techniques.</li>
-      <li>Applied CNN-based architectures for feature extraction and classification.</li>
-    </ul>
-  </details>
-
-  <!-- 3) Development of Multifaceted Chatbot Service Application -->
-  <details>
-    <summary>
-      Development of Multifaceted Chatbot Service Application 
-      <a href="https://github.com/sriram7737/Multi-Source-Data-Analytics-Chatbot" target="_blank" rel="noopener" style="font-size: 0.8em; color: #fbd786;">[GitHub]</a>
-    </summary>
-    <p>
-      Developed a comprehensive chatbot application integrating document analysis, 
-      web scraping, text generation, and voice interaction using advanced AI models 
-      and Python libraries. This system combines state-of-the-art NLP techniques, 
-      modular architecture, and ethical AI practices to deliver scalable solutions.
-    </p>
-    <ul>
-      <li>Utilized <strong>BeautifulSoup</strong> for web scraping, 
-          <strong>transformers</strong> for summarization, 
-          <strong>VaderSentiment</strong> for sentiment analysis, 
-          and word cloud generation.</li>
-      <li>Enhanced with a fine-tuned GPT-2 model trained on Wikipedia data 
-          for improved text generation and question-answering functionalities.</li>
-      <li>Enabled voice commands and responses using <strong>SpeechRecognition</strong> 
-          and <strong>pyttsx3</strong>.</li>
-    </ul>
-    <p>
-      <strong>Libraries Used:</strong> Flask, PyPDF2, python-docx, TextBlob, VaderSentiment, 
-      transformers, WordCloud, BeautifulSoup, GPT-2, SpeechRecognition, pyttsx3.
-    </p>
-  </details>
-
-  <!-- 4) Chatbot Creation Using NLTK -->
-  <details>
-    <summary>
-      Chatbot Creation Using NLTK 
-      <a href="https://github.com/sriram7737/Chatbot" target="_blank" rel="noopener" style="font-size: 0.8em; color: #fbd786;">[GitHub]</a>
-    </summary>
-    <ul>
-      <li>Utilized NLTK to build a context-aware chatbot providing detailed, accurate responses.</li>
-      <li>Automated customer service workflows, enhancing response accuracy and efficiency.</li>
-    </ul>
-  </details>
-
-  <!-- 5) OpenAI Powered Poetry Application -->
-  <details>
-    <summary>
-      OpenAI Powered Poetry Application 
-      <a href="https://github.com/sriram7737/openai_poetry_app" target="_blank" rel="noopener" style="font-size: 0.8em; color: #fbd786;">[GitHub]</a>
-    </summary>
-    <p>
-      Conceived and developed a web-based poetry application aimed at enriching user 
-      engagement through the exploration and creation of poetry. This project involved 
-      daily challenges and features for automated poetry generation and detailed analysis, 
-      enhancing the user’s literary appreciation and creative expression.
-    </p>
-    <ul>
-      <li>Backend built with <strong>Python &amp; Flask</strong>, integrating 
-          <strong>NLTK</strong> for natural language processing and utilizing 
-          <strong>OpenAI’s API</strong> to enable dynamic content generation.</li>
-      <li>Incorporated a suite of Flask extensions, including <strong>Flask-Login</strong> 
-          for robust user authentication, <strong>Flask-SQLAlchemy</strong> for efficient 
-          database interactions, and <strong>WTForms</strong> for secure and flexible 
-          form handling.</li>
-    </ul>
-  </details>
-  
-  
-
-</section>
-
-
-      <!-- Education -->
-      <section>
-        <h2>Education</h2>
-        <p>
-          <strong>Master of Science in Computer Science</strong><br/>
-          Lawrence Technological University, Southfield, MI<br/>
-          <em>Graduation: December 2024</em>
-        </p>
-      </section>
-
-      <!-- Career Objective -->
-      <section>
-        <h2>Career Objective</h2>
-        <p>
-          To excel as an <strong>AI Developer</strong>, <strong>Machine Learning Engineer</strong>, 
-          <strong>AI Engineer</strong>, or <strong>Data Engineer</strong> by leveraging expertise 
-          in Python, SQL, PyTorch, TensorFlow, Scikit-Learn, and NLTK. Committed to 
-          <em>solving real-world problems, driving business growth,</em> and 
-          <em>innovating</em> through advanced machine learning frameworks, NLP, and 
-          cutting-edge Generative AI solutions.
-        </p>
-      </section>
-    </main>
-
+    <!-- Footer -->
     <footer>
-      <p>Thank you for visiting! May all your <strong>models</strong> be well-trained and your <strong>data</strong> always clean.</p>
-      <img src="https://media.giphy.com/media/o0vwzuFwCGAFO/giphy.gif" alt="Magic Sparkles" />
+      <p>© 2025 Sriram Rampelli. Built with <span style="color: #e25555;">❤</span> for generative AI &amp; data science.</p>
+      <p><small>Last updated: June 2025</small></p>
     </footer>
   </div>
 
   <script>
-    // (Optional) If you want to do any additional JS stuff:
-    // The typewriter effect is handled via CSS animations in this version.
+    // IntersectionObserver to fade in sections on scroll
+    document.addEventListener('DOMContentLoaded', () => {
+      const sections = document.querySelectorAll('section');
+      const observer = new IntersectionObserver(
+        entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+            }
+          });
+        },
+        { threshold: 0.15 }
+      );
+      sections.forEach(section => observer.observe(section));
+    });
   </script>
 </body>
 </html>
