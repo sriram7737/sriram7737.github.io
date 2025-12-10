@@ -3,516 +3,533 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Sriram Rampelli – AI Engineer Portfolio</title>
-  <!-- Google Font for a modern, clean look -->
+  <title>Sriram Rampelli – AI/ML Engineer Portfolio</title>
+
+  <!-- Font -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
   <style>
-    /* Root variables for a cohesive, “magical” palette */
     :root {
       --primary-color: #4b6cb7;
       --secondary-color: #182848;
       --accent-color: #ff9a9e;
-      --light-gray: #f3f4f6;
+      --light-gray: #f4f6fa;
       --dark-gray: #333;
       --card-bg: #ffffff;
-      --shadow-color: rgba(0, 0, 0, 0.1);
+      --shadow-soft: 0 10px 25px rgba(0,0,0,0.12);
+      --shadow-hover: 0 14px 32px rgba(0,0,0,0.18);
     }
 
-    /* Global reset and typography */
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-    html {
-      scroll-behavior: smooth;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
       font-family: 'Poppins', sans-serif;
-      line-height: 1.6;
-      color: var(--dark-gray);
       background: var(--light-gray);
-    }
-    a {
-      color: var(--primary-color);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-    a:hover {
-      color: var(--accent-color);
-    }
-    h1, h2, h3, h4 {
-      color: var(--secondary-color);
-      margin-bottom: 0.5rem;
-      line-height: 1.2;
-    }
-    p {
-      margin-bottom: 1rem;
+      color: var(--dark-gray);
+      line-height: 1.6;
     }
 
-    /* Smooth section spacing */
-    section {
-      padding: 4rem 2rem;
-      position: relative;
-    }
-    /* Add subtle fade-in on scroll */
-    section {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-    }
-    section.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* Hero section with gradient background */
+    /* HERO SECTION */
     .hero {
-  text-align: center;
-  padding: 6rem 2rem 8rem;      /* <-- added extra bottom padding (8rem) */
-  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-  color: #fff;
-  border-bottom-left-radius: 50% 10%;
-  border-bottom-right-radius: 50% 10%;
-  margin-bottom: 3rem;
-  position: relative;
-  overflow: hidden;
-}
-    .hero h1 {
-      font-size: 3rem;
-      margin-bottom: 1rem;
-      font-weight: 700;
+      text-align: center;
+      padding: 8rem 2rem 9rem;
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      color: white;
+      border-bottom-left-radius: 50% 10%;
+      border-bottom-right-radius: 50% 10%;
+      opacity: 0;
+      transform: translateY(-20px) scale(0.97);
+      transition: opacity 1.2s ease-out, transform 1.2s ease-out;
     }
-    .hero p {
-      font-size: 1.1rem;
-      max-width: 600px;
-      margin: 0 auto 1.5rem;
+    .hero.visible {
+      opacity: 1;
+      transform: translateY(0) scale(1);
     }
-    .hero .btn {
-  background: #fff;
-  color: var(--secondary-color);
-  font-weight: 600;
-  padding: 0.75rem 1.5rem;
-  border-radius: 30px;
-  box-shadow: 0 4px 10px var(--shadow-color);
-  transition: background 0.2s, color 0.2s, transform 0.2s;
-  margin-top: 2rem;             /* <-- ensure the button sits lower */
-}
-    .hero .btn:hover {
+
+    .hero h1 { font-size: 3.2rem; font-weight: 700; margin-bottom: 1rem; }
+    .hero p { max-width: 650px; margin: 0 auto 1rem; opacity: 0.92; }
+
+    .hero-btn {
+      margin-top: 1.5rem;
+      padding: 0.85rem 1.8rem;
+      background: white;
+      color: var(--secondary-color);
+      border-radius: 50px;
+      font-weight: 600;
+      transition: 0.25s ease-out;
+      box-shadow: var(--shadow-soft);
+    }
+    .hero-btn:hover {
       background: var(--accent-color);
       color: #fff;
-      transform: translateY(-2px);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-hover);
     }
 
-    /* Container to center content */
-    .container {
-      max-width: 960px;
-      margin: 0 auto;
-    }
-
-    /* Section titles */
+    /* SECTION HEADINGS */
+    section { padding: 4.2rem 2rem; }
     h2 {
-      font-size: 2rem;
-      font-weight: 600;
-      margin-bottom: 1rem;
+      font-size: 2.1rem;
       text-align: center;
-      position: relative;
+      margin-bottom: 1rem;
     }
     h2::after {
-      content: '';
+      content: "";
       width: 60px;
       height: 4px;
-      background: var(--accent-color);
+      margin: 0.6rem auto 0;
       display: block;
-      margin: 0.5rem auto 0;
-      border-radius: 2px;
+      background: var(--accent-color);
+      border-radius: 3px;
     }
 
-    /* Skills list */
+    .container { max-width: 960px; margin: 0 auto; }
+
+    /* ANIMATIONS */
+    .slide-left {
+      opacity: 0; transform: translateX(-40px);
+      transition: opacity 0.9s ease-out, transform 0.9s ease-out;
+    }
+    .slide-right {
+      opacity: 0; transform: translateX(40px);
+      transition: opacity 0.9s ease-out, transform 0.9s ease-out;
+    }
+    .visible { opacity: 1 !important; transform: translateX(0) !important; }
+
+    .fade-up {
+      opacity: 0; transform: translateY(30px);
+      transition: opacity 0.9s, transform 0.9s;
+    }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    /* SKILLS */
     .skills-list {
+      list-style: none;
       display: flex;
       flex-wrap: wrap;
-      gap: 0.75rem;
       justify-content: center;
-      list-style: none;
-      padding: 0;
+      gap: 0.8rem;
+      margin-top: 1rem;
     }
     .skills-list li {
-      background: #fff;
-      padding: 0.6rem 1rem;
+      background: white;
+      padding: 0.7rem 1.2rem;
       border-radius: 30px;
+      box-shadow: var(--shadow-soft);
+      transition: 0.2s ease-out;
       font-size: 0.95rem;
-      box-shadow: 0 2px 8px var(--shadow-color);
-      transition: transform 0.2s;
     }
-    .skills-list li:hover {
-      transform: translateY(-3px);
-    }
+    .skills-list li:hover { transform: translateY(-4px); }
 
-    /* Certifications list */
-    .cert-list {
-      max-width: 600px;
-      margin: 0 auto;
-      list-style: none;
-      padding: 0;
-    }
-    .cert-list li {
-      background: #fff;
-      margin: 0.5rem 0;
-      padding: 0.75rem 1rem;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px var(--shadow-color);
-      font-size: 0.95rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    /* Grid layout for cards (projects & competitions) */
+    /* CARDS */
     .cards-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 2rem;
       margin-top: 2rem;
     }
     .card {
-      background: var(--card-bg);
-      border-radius: 12px;
-      padding: 1.5rem;
-      box-shadow: 0 4px 15px var(--shadow-color);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      transition: transform 0.2s, box-shadow 0.2s;
+      background: white;
+      padding: 1.7rem;
+      border-radius: 16px;
+      box-shadow: var(--shadow-soft);
+      transition: 0.35s ease-out;
+      opacity: 0;
+      transform: translateY(30px) scale(0.97);
+    }
+    .card.visible-card {
+      opacity: 1;
+      transform: translateY(0) scale(1);
     }
     .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 6px 20px var(--shadow-color);
+      transform: translateY(-6px) scale(1.03);
+      box-shadow: var(--shadow-hover);
     }
-    .card h4 {
-      font-size: 1.25rem;
-      margin-bottom: 0.75rem;
-      font-weight: 600;
-    }
-    .card p {
-      flex-grow: 1;
-      font-size: 0.95rem;
-    }
-    .card .btn {
+
+    .card h4 { font-size: 1.25rem; font-weight: 600; margin-bottom: 0.6rem; }
+    .card p { margin-bottom: 0.7rem; }
+
+    .btn {
+      display: inline-block;
+      padding: 0.55rem 1.1rem;
       background: var(--primary-color);
-      color: #fff;
-      padding: 0.5rem 1rem;
+      color: white;
       border-radius: 30px;
-      text-align: center;
+      transition: 0.25s;
       font-size: 0.9rem;
-      align-self: flex-start;
-      margin-top: 1rem;
-      transition: background 0.2s, transform 0.2s;
     }
-    .card .btn:hover {
-      background: var(--accent-color);
-      transform: translateY(-2px);
-    }
+    .btn:hover { background: var(--accent-color); transform: translateY(-2px); }
 
-    /* Experience & Education lists */
-    .detail-list {
-      list-style: none;
-      padding: 0;
-      max-width: 800px;
-      margin: 0 auto;
+    details {
+      margin-top: 0.4rem;
+      font-size: 0.9rem;
     }
-    .detail-list li {
-      margin-bottom: 1rem;
-      font-size: 0.95rem;
-    }
-    .detail-list h3 {
-      font-size: 1.1rem;
-      margin-bottom: 0.5rem;
+    details summary {
+      cursor: pointer;
       font-weight: 600;
+      color: var(--secondary-color);
+      outline: none;
     }
-    .detail-list ul {
-      list-style: disc inside;
-      padding-left: 1rem;
+    details summary::marker {
+      color: var(--accent-color);
     }
 
-    /* Contact icons */
+    /* CONTACT */
     .contact-links {
       display: flex;
       justify-content: center;
       gap: 1.5rem;
-      margin-top: 1.5rem;
+      margin-top: 1.2rem;
     }
-    .contact-links a img {
+    .contact-links img {
       width: 36px;
-      height: 36px;
-      filter: drop-shadow(0 2px 5px var(--shadow-color));
-      transition: transform 0.2s;
+      transition: 0.25s;
     }
-    .contact-links a img:hover {
-      transform: scale(1.1);
+    .contact-links img:hover {
+      transform: translateY(-4px) scale(1.1);
     }
 
-    /* Footer styling */
     footer {
-      text-align: center;
-      font-size: 0.9rem;
-      padding: 1.5rem 0;
-      color: var(--dark-gray);
-      border-top: 1px solid #e0e0e0;
-      background: #fff;
       margin-top: 3rem;
+      text-align: center;
+      background: white;
+      padding: 1.3rem;
+      border-top: 1px solid #ddd;
+      font-size: 0.9rem;
     }
   </style>
 </head>
+
 <body>
-  <!-- Hero Section -->
-  <div class="hero">
-    <h1>Sriram Rampelli</h1>
-    <p>AI Engineer | Generative AI | LLMs | Computer Vision | Data Scientist</p>
-    <p>
-      Master’s in Computer Science (Dec 2024) – Lawrence Technological University | F1 Visa (seeks sponsorship)<br/>
-      <a href="#contact" class="btn">Let’s Connect</a>
-    </p>
-  </div>
 
-  <div class="container">
-    <!-- About Section -->
-    <section id="about">
-      <h2>About Me</h2>
-      <p>
-        I’m an AI/ML Engineer with a Master’s in Computer Science who excels at building and fine-tuning large language models and vision-language systems—often on limited local hardware. By leveraging techniques such as 4-bit quantization, LoRA, and QLoRA adapters, I make state-of-the-art models run efficiently on an NVIDIA 3050 Ti. My projects span RAG pipelines with Hugging Face, Flask-based healthcare chatbots analyzing DICOM images, and end-to-end deployment on constrained GPUs.
-      </p>
-      <p>
-        At Wipro Technologies, I designed ML-driven monitoring frameworks that reduced system errors by 35%. As a Research Assistant at Lawrence Tech (May 2024 – Dec 2024), I fine-tuned LLaMA &amp; BioBERT for clinical NLP and published my thesis at IEEE CCWC 2025. I thrive at the intersection of research and production—balancing model performance with hardware constraints to deliver impactful AI solutions.
-      </p>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills">
-      <h2>Core Skills &amp; Technologies</h2>
-      <ul class="skills-list">
-        <li>Python (NumPy, Pandas, scikit-learn)</li>
-        <li>PyTorch &amp; TensorFlow</li>
-        <li>Hugging Face Transformers</li>
-        <li>4-bit Quantization, LoRA, QLoRA</li>
-        <li>LangChain &amp; LlamaIndex (RAG Pipelines)</li>
-        <li>Computer Vision (CLIP, TinyLlama-VLM)</li>
-        <li>Flask &amp; FastAPI Deployment</li>
-        <li>Docker &amp; Kubernetes Basics</li>
-        <li>SQL, PostgreSQL &amp; Vector DBs (FAISS, Pinecone)</li>
-        <li>AWS (S3, EC2, Lambda)</li>
-        <li>CI/CD (GitHub Actions, Jenkins)</li>
-      </ul>
-    </section>
-
-    <!-- Certifications Section -->
-    <section id="certifications">
-      <h2>Certifications</h2>
-      <ul class="cert-list">
-        <li>
-          <span>NVIDIA-Certified Associate: Generative AI &amp; LLMs</span>
-          
-        </li>
-        <li>
-          <span>Oracle Cloud Infrastructure 2024 Generative AI Certified Professional</span>
-        
-        </li>
-      </ul>
-    </section>
-
-    <!-- Competitions Section -->
-    <section id="competitions">
-      <h2>Competitions</h2>
-      <div class="cards-grid">
-        <!-- RSNA 2024 Lumbar Spine Classification Card -->
-        <div class="card">
-          <h4>RSNA 2024 Lumbar Spine Classification</h4>
-          <p>
-            Contributed to the RSNA 2024 competition by developing a convolutional neural network to classify lumbar spine degenerative conditions. Leveraged data augmentation, ensemble learning, and optimized inference on limited-GPU hardware to achieve over 92% accuracy. All code—preprocessing, model training, and evaluation—is available in the GitHub repository.
-          </p>
-          <p><strong>Tech:</strong> PyTorch, Keras, NumPy, OpenCV, Docker, AWS S3.</p>
-          <a href="https://github.com/sriram7737/RSNA2024" class="btn" target="_blank">View On Github</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects">
-      <h2>Highlighted AI/ML Projects</h2>
-      <div class="cards-grid">
-        <!-- 1. TinyLlama-VLM-LoRA -->
-        <div class="card">
-          <h4>TinyLlama-VLM-LoRA</h4>
-          <p>
-            A vision-language model fine-tuned from TinyLlama (1.1B) using LoRA adapters on Flickr30k image-caption pairs. Integrates a frozen CLIP ViT encoder to convert image features into “vision tokens” for TinyLlama, enabling zero-shot captioning. Evaluation scripts include BLEU, ROUGE, F1, and perplexity.
-          </p>
-          <p><strong>Tech:</strong> TinyLlama, LoRA, CLIP (ViT-Base), PyTorch, Hugging Face Transformers.</p>
-          <a href="https://github.com/sriram7737/TinyLlama-VLM-LoRA" class="btn" target="_blank">View on GitHub</a>
-        </div>
-
-        <!-- 2. RESEARCH_OF_AI_IN_HEALTHCARE (Updated) -->
-<div class="card">
-  <h4>Empowering Healthcare with Generative AI</h4>
-  <p>
-    This repository contains the code  used for my IEEE CCWC 2025 publication
-    <em>"Empowering Healthcare Data Systems with an Innovative Chatbot Application Utilizing Python and Advanced Generative AI Models."</em>
-    It includes Enhanced BioBERT with CRF for NER: Annotated dataset with detailed prescription entities,Voice & Text Interfaces: Supports multilingual speech interaction and text-based querying.
-  </p>
-  <p><strong>Tech:</strong> Python,PyTorch, TensorFlow, NumPy, scikit-learn,Flask, Hugging Face Transformer,OpenCV, SpeechRecognition, Pytesseract, BeautifulSoup4, WordCloud.</p>
-  <a href="https://github.com/sriram7737/RESEARCH_OF_AI_IN_HEALTHACARE" class="btn" target="_blank">View on GitHub</a>
+<!-- HERO -->
+<div class="hero" id="hero">
+  <h1>Sriram Rampelli</h1>
+  <p>AI/ML Engineer | Generative AI & LLMs | Vision-Language Models | Healthcare AI</p>
+  <p>Master’s in Computer Science – Lawrence Technological University (GPA 3.67) | F1 OPT (STEM Eligible)</p>
+  <a href="#contact" class="hero-btn">Let’s Connect</a>
 </div>
 
+<div class="container">
 
-        <!-- 3. AI-Call-Center-Prototype-Faster-Whisper-TinyLLaMA-Demo -->
-        <div class="card">
-          <h4>AI Call Center Prototype (Faster-Whisper &amp; TinyLLaMA)</h4>
-          <p>
-            Demonstrates real-time audio transcription via Faster Whisper integrated with TinyLLaMA to generate context-aware responses. Simulates an AI-powered call-center agent: transcribing customer speech, interpreting intent with TinyLLaMA, and returning automated replies.
-          </p>
-          <p><strong>Tech:</strong> Faster Whisper, TinyLLaMA, PyTorch, Flask, WebSocket streaming.</p>
-          <a href="https://github.com/sriram7737/AI-Call-Center-Prototype-Faster-Whisper-TinyLLaMA-Demo" class="btn" target="_blank">View on GitHub</a>
-        </div>
+  <!-- ABOUT -->
+  <section class="slide-left">
+    <h2>About Me</h2>
+    <p>
+      I’m an AI/ML Engineer specializing in generative AI, large language models, and vision-language systems.
+      I design and deploy scalable AI solutions that run efficiently even on constrained hardware, leveraging
+      techniques like 4-bit quantization, LoRA/QLoRA, CLIP-based vision adapters, and optimized inference pipelines.
+    </p>
+    <p>
+      My work spans quantum-inspired adapters for VLMs, TinyLlama-based multimodal systems, and healthcare-focused
+      generative AI—culminating in an IEEE CCWC 2025 publication. I enjoy sitting at the intersection of research and
+      production: converting papers into practical, reliable systems that fit real-world constraints.
+    </p>
+    <p>
+      Previously at Wipro, I built ML-driven anomaly detection frameworks that reduced system errors by over 30%. At
+      Lawrence Tech, I worked as a Research Assistant on LLaMA + BioBERT pipelines for clinical NLP, OCR-driven
+      prescription analysis, and multimodal healthcare chatbots.
+    </p>
+  </section>
 
-        <!-- 4. TRASHPRED- -->
-        <div class="card">
-          <h4>TRASHPRED</h4>
-          <p>
-            A transformer-based RGB image classifier to distinguish recyclable vs. non-recyclable items. Trained on a custom waste-image dataset, achieving 92%+ accuracy. Includes data augmentation pipelines and inference scripts deployed via Hugging Face.
-          </p>
-          <p><strong>Tech:</strong> PyTorch, Hugging Face Transformers, FastAPI, AWS S3 (data storage).</p>
-          <a href="https://github.com/sriram7737/TRASHPRED-" class="btn" target="_blank">View on GitHub</a>
-        </div>
+  <!-- SKILLS -->
+  <section class="slide-right">
+    <h2>Core Skills & Technologies</h2>
+    <ul class="skills-list">
+      <li>Python, PyTorch, TensorFlow</li>
+      <li>Transformers, LLaMA, TinyLlama</li>
+      <li>LoRA, QLoRA, 4-bit Quantization</li>
+      <li>Vision-Language Models, CLIP, VLM Adapters</li>
+      <li>RAG Systems, LangChain, Vector DBs</li>
+      <li>BioBERT, Clinical NER, OCR Pipelines</li>
+      <li>Flask, FastAPI, REST APIs</li>
+      <li>AWS (EC2, S3, Lambda)</li>
+      <li>Docker, CI/CD (GitHub Actions)</li>
+      <li>SQL, PostgreSQL, Data Pipelines</li>
+    </ul>
+  </section>
 
-        <!-- 5. Multi-Source-Data-Analytics-Chatbot -->
-        <div class="card">
-          <h4>Multi-Source Data Analytics Chatbot</h4>
-          <p>
-            A Flask-based chatbot that ingests CSV, Excel, PDF, DOCX, JSON, XML, images, and DICOM files—generating histograms, bar charts, pie charts; performing sentiment analysis, summarization, and prescription parsing. Integrated with a fine-tuned GPT-2 model for open-domain Q&amp;A.
-          </p>
-          <p><strong>Tech:</strong> Python, Flask, PyTorch, GPT-2, OpenAI API, DICOM processing, pandas, matplotlib.</p>
-          <a href="https://github.com/sriram7737/Multi-Source-Data-Analytics-Chatbot" class="btn" target="_blank">View on GitHub</a>
-        </div>
+  <!-- CERTIFICATIONS -->
+  <section class="slide-left">
+    <h2>Certifications</h2>
+    <ul class="skills-list">
+      <li>NVIDIA-Certified Associate: Generative AI & LLMs</li>
+      <li>Oracle Cloud Infrastructure 2024 Generative AI Certified Professional</li>
+    </ul>
+  </section>
 
-        <!-- 6. openai_poetry_app -->
-        <div class="card">
-          <h4>OpenAI Poetry App</h4>
-          <p>
-            A web application that generates custom poetry using OpenAI’s GPT-3/4 models. Users input prompts and receive stylistically coherent poems. Includes an interactive front end for prompt refinement and a feedback loop for continuous model improvements.
-          </p>
-          <p><strong>Tech:</strong> OpenAI API, Streamlit, Python, Docker.</p>
-          <a href="https://github.com/sriram7737/openai_poetry_app" class="btn" target="_blank">View on GitHub</a>
-        </div>
+  <!-- EXPERIENCE -->
+  <section class="slide-right">
+    <h2>Professional Experience</h2>
+    <div class="cards-grid">
 
-        <!-- 7. Chatbot (Corrected) -->
-        <div class="card">
-          <h4>AI Healthcare Chatbot</h4>
-          <p>
-            A Flask-based AI Chatbot for healthcare applications. It answers general medical queries via GPT-2 and Wikipedia, and features a prescription-analysis module that uses <code>en_sci_md</code> to extract structured data (e.g., patient DOB, medications, dosages) from prescription PDFs. Also supports voice input via a speech-to-text interface and generates visual summaries (charts for vitals or medication usage).
-          </p>
-          <p><strong>Tech:</strong> Flask, Python, spaCy, NLTK, PyTorch (GPT-2), <code>en_sci_md</code>, SpeechRecognition, Pandas, Matplotlib.</p>
-          <a href="https://github.com/sriram7737/Chatbot" class="btn" target="_blank">View on GitHub</a>
-        </div>
+      <!-- BCG / GenAI Simulation -->
+      <div class="card">
+        <h4>AI/ML Intern – BCG GenAI Job Simulation</h4>
+        <p><em>2025 (Virtual Experience)</em></p>
+        <ul style="font-size:0.9rem; padding-left:1.1rem; margin-top:0.3rem;">
+          <li>Built an AI-powered financial assistant that ingested SEC 10-K filings and automated extraction of key KPIs and risk indicators.</li>
+          <li>Designed NLP pipelines using spaCy and pandas to structure unstructured filings into analysis-ready tables.</li>
+          <li>Implemented sentiment and topic analysis across sections (MD&A, Risk Factors) to summarize company outlook.</li>
+          <li>Experimented with retrieval-augmented generation (RAG) to ground LLM responses directly in source documents.</li>
+          <li>Focused on explainability and reproducible outputs to align with consulting-grade deliverables.</li>
+        </ul>
       </div>
-    </section>
 
-    <!-- Experience Section -->
-    <section id="experience">
-      <h2>Professional Experience</h2>
-      <ul class="detail-list">
-        <li>
-          <h3>AI Intern – BCG GenAI Job Simulation | Feb 2025</h3>
-          <ul>
-            <li>Developed an AI-powered financial chatbot that automated SEC 10-K data extraction, reducing manual effort by 40%.</li>
-            <li>Implemented NLP-based structured data extraction using spaCy and pandas.</li>
-            <li>Automated financial sentiment analysis, increasing decision-making efficiency by 25% for financial teams.</li>
-            <li>Explored retrieval-augmented solutions aligned with RAG principles to support dynamic query responses.</li>
-          </ul>
-        </li>
-        <li>
-          <h3>Research Assistant – Lawrence Technological University | May 2024 – Dec 2024</h3>
-          <ul>
-            <li>Developed an LLM-powered healthcare chatbot integrating fine-tuned LLaMA &amp; enhanced BioBERT, improving medical Q&amp;A accuracy by 23%.</li>
-            <li>Designed custom data pipelines to handle noisy clinical text, boosting OCR-based medical-condition recognition by 35% on local hardware (NVIDIA 3050 Ti) via 4-bit quantization and LoRA adapters.</li>
-            <li>Published thesis at IEEE CCWC 2025:  
-              <a href="https://doi.org/10.1109/CCWC62904.2025.10903815" target="_blank">“Empowering Healthcare Data Systems with an Innovative Chatbot Application Utilizing Python and Advanced Generative AI Models”</a>.
-            </li>
-            <li>Investigated vector-based retrieval techniques to enhance chatbot performance.</li>
-          </ul>
-        </li>
-        <li>
-          <h3>Project Engineer – Wipro Technologies | Nov 2021 – Dec 2022</h3>
-          <ul>
-            <li>Developed an ML-driven anomaly detection system, reducing system log errors by 35%.</li>
-            <li>Optimized system performance by 27% through an ML-driven monitoring framework.</li>
-            <li>Managed 300+ test procedures &amp; 100+ Agile sprints, ensuring high-quality releases.</li>
-          </ul>
-        </li>
-      </ul>
-    </section>
-
-    <!-- Education & Publications Section -->
-    <section id="education">
-      <h2>Education &amp; Publications</h2>
-      <ul class="detail-list">
-        <li>
-          <h3>Master of Science in Computer Science | Lawrence Technological University | Dec 2024</h3>
-          <ul>
-            <li><strong>Relevant Coursework:</strong> Deep Learning, NLP, Computer Vision, Data Mining, Advanced Algorithms.</li>
-            <li><strong>Thesis / Publication:</strong>  
-              Rampelli, S. (2025). <em>Empowering Healthcare Data Systems with an Innovative Chatbot Application Utilizing Python and Advanced Generative AI Models.</em>  
-              Presented at IEEE CCWC 2025.  
-              <a href="https://doi.org/10.1109/CCWC62904.2025.10903815" target="_blank">doi:10.1109/CCWC62904.2025.10903815</a>
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact">
-      <h2>Get in Touch</h2>
-      <p>
-        I’m actively seeking AI/ML engineering roles (F1 Visa, open to sponsorship). If you’re building generative AI products, vision-language models, or data pipelines, let’s chat!
-      </p>
-      <div class="contact-links">
-        <a href="mailto:sriramrampelli15@gmail.com" title="Email">
-          <img src="https://unpkg.com/simple-icons@v8/icons/gmail.svg" alt="Email Icon" />
-        </a>
-        <a href="https://github.com/sriram7737" target="_blank" title="GitHub">
-          <img src="https://unpkg.com/simple-icons@v8/icons/github.svg" alt="GitHub Icon" />
-        </a>
-        <a href="https://www.linkedin.com/in/sriram-rampelli/" target="_blank" title="LinkedIn">
-          <img src="https://unpkg.com/simple-icons@v8/icons/linkedin.svg" alt="LinkedIn Icon" />
-        </a>
-        <a href="https://huggingface.co/sriram7737" target="_blank" title="Hugging Face">
-          <img src="https://unpkg.com/simple-icons@latest/icons/huggingface.svg" alt="Hugging Face Icon" />
-        </a>
+      <!-- LTU Research Assistant -->
+      <div class="card">
+        <h4>Research Assistant – Lawrence Technological University</h4>
+        <p><em>May 2024 – Dec 2024 | Southfield, MI</em></p>
+        <ul style="font-size:0.9rem; padding-left:1.1rem; margin-top:0.3rem;">
+          <li>Developed a healthcare chatbot integrating fine-tuned LLaMA and Enhanced BioBERT for clinical question answering.</li>
+          <li>Built OCR and NLP pipelines to parse prescriptions and clinical documents, extracting entities like diagnoses, medications, and dosages.</li>
+          <li>Optimized model deployment on a local NVIDIA 3050 Ti using 4-bit quantization and LoRA adapters to fit resource limits.</li>
+          <li>Co-authored an IEEE CCWC 2025 paper on generative AI for healthcare data systems and presented findings at the conference.</li>
+          <li>Implemented hybrid retrieval (keyword + semantic search) to ground generative outputs in medical corpora and reduce hallucinations.</li>
+        </ul>
       </div>
-    </section>
 
-    <!-- Footer -->
-    <footer>
-      <p>© 2025 Sriram Rampelli. Built with <span style="color: #e25555;">❤</span> for generative AI &amp; data science.</p>
-      <p><small>Last updated: June 2025</small></p>
-    </footer>
-  </div>
+      <!-- Wipro -->
+      <div class="card">
+        <h4>Project Engineer – Wipro Technologies</h4>
+        <p><em>Nov 2021 – Dec 2022 | India</em></p>
+        <ul style="font-size:0.9rem; padding-left:1.1rem; margin-top:0.3rem;">
+          <li>Designed ML-based anomaly detection for infrastructure and application logs, reducing critical incident volume by ~35%.</li>
+          <li>Built monitoring dashboards and alerting workflows that improved mean time to detection (MTTD) and resolution (MTTR).</li>
+          <li>Collaborated with cross-functional teams across 100+ Agile sprints to deliver stable and performant releases.</li>
+          <li>Automated portions of manual validation using Python scripts and data-driven rule engines to reduce operational overhead.</li>
+        </ul>
+      </div>
 
-  <script>
-    // IntersectionObserver to fade in sections on scroll
-    document.addEventListener('DOMContentLoaded', () => {
-      const sections = document.querySelectorAll('section');
-      const observer = new IntersectionObserver(
-        entries => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('visible');
-            }
-          });
-        },
-        { threshold: 0.15 }
-      );
-      sections.forEach(section => observer.observe(section));
+    </div>
+  </section>
+
+  <!-- R&D PROJECTS -->
+  <section class="slide-left">
+    <h2>R&amp;D Projects (Quantum AI & Healthcare GenAI)</h2>
+    <div class="cards-grid">
+
+      <div class="card">
+        <h4>Quantum-VLM Adapter</h4>
+        <p>
+          Quantum-inspired adapter layer for compressing and accelerating vision-language models without sacrificing multimodal reasoning quality.
+        </p>
+        <details>
+          <summary>View Details</summary>
+          <ul>
+            <li>Combines LoRA with quantum-inspired linear projections to reduce parameter count and GPU memory consumption.</li>
+            <li>Integrates with TinyLlama-VLM as a base model for multimodal captioning and reasoning tasks.</li>
+            <li>Includes rank ablations, latency/throughput benchmarks, and quality metrics on captioning datasets.</li>
+          </ul>
+        </details>
+        <p style="margin-top:0.5rem;"><strong>Tech:</strong> TinyLlama-VLM, LoRA, PyTorch, Hugging Face Transformers</p>
+        <a href="https://github.com/sriram7737/Quantum-VLM-Adapter" class="btn" target="_blank">View on GitHub</a>
+      </div>
+
+      <div class="card">
+        <h4>Healthcare Generative AI – IEEE CCWC 2025</h4>
+        <p>
+          Research codebase backing my IEEE paper on generative AI for healthcare data systems.
+        </p>
+        <details>
+          <summary>View Details</summary>
+          <ul>
+            <li>Enhanced BioBERT + CRF pipeline for clinical NER over prescriptions and discharge summaries.</li>
+            <li>OCR-based extraction of prescription text and normalization of medical entities.</li>
+            <li>Integration with generative models to answer clinical questions and summarize patient-level information.</li>
+          </ul>
+        </details>
+        <p style="margin-top:0.5rem;"><strong>Tech:</strong> BioBERT, CRF, PyTorch, OCR (Tesseract), Flask, Transformers</p>
+        <a href="https://github.com/sriram7737/RESEARCH_OF_AI_IN_HEALTHACARE" class="btn" target="_blank">View on GitHub</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- COMPETITIONS -->
+  <section class="slide-right">
+    <h2>Competitions</h2>
+    <div class="cards-grid">
+      <div class="card">
+        <h4>RSNA 2024 – Lumbar Spine Degeneration Classification</h4>
+        <p>
+          Built a deep learning pipeline for classifying lumbar spine degeneration from MRI scans in the RSNA 2024 challenge.
+        </p>
+        <details>
+          <summary>View Details</summary>
+          <ul>
+            <li>Used CNN-based models with aggressive data augmentation to handle scanner and patient variability.</li>
+            <li>Implemented ensemble strategies and test-time augmentation to boost robustness and accuracy.</li>
+            <li>Achieved >92% validation accuracy while respecting inference latency and memory constraints.</li>
+          </ul>
+        </details>
+        <p style="margin-top:0.5rem;"><strong>Tech:</strong> PyTorch, OpenCV, NumPy, Docker, AWS S3</p>
+        <a href="https://github.com/sriram7737/RSNA2024" class="btn" target="_blank">View on GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="slide-left">
+    <h2>Highlighted AI/ML Projects</h2>
+    <div class="cards-grid">
+
+      <div class="card">
+        <h4>TinyLlama-VLM LoRA</h4>
+        <p>
+          Multimodal TinyLlama-based VLM that injects CLIP vision tokens into the language model context via LoRA adapters.
+        </p>
+        <details>
+          <summary>View Details</summary>
+          <ul>
+            <li>Preprocessed Flickr30k-style caption datasets and aligned image-text pairs for multimodal training.</li>
+            <li>Used a frozen CLIP ViT encoder to generate vision tokens fed into TinyLlama’s context window.</li>
+            <li>Evaluated with BLEU, ROUGE, and perplexity metrics to measure captioning quality and fluency.</li>
+          </ul>
+        </details>
+        <p style="margin-top:0.5rem;"><strong>Tech:</strong> TinyLlama, CLIP, LoRA, PyTorch, Transformers</p>
+        <a href="https://github.com/sriram7737/TinyLlama-VLM-LoRA" class="btn" target="_blank">View on GitHub</a>
+      </div>
+
+      <div class="card">
+        <h4>AI Call Center – Whisper + TinyLLaMA</h4>
+        <p>
+          Real-time AI call center prototype combining streaming ASR with a lightweight LLM to handle customer interactions.
+        </p>
+        <details>
+          <summary>View Details</summary>
+          <ul>
+            <li>Used Faster-Whisper for streaming speech-to-text; passed transcripts to TinyLLaMA for intent classification and response generation.</li>
+            <li>Implemented conversational state tracking to handle multi-turn dialogues and context carry-over.</li>
+            <li>Built a simple web interface and WebSocket pipeline for near real-time interaction.</li>
+          </ul>
+        </details>
+        <p style="margin-top:0.5rem;"><strong>Tech:</strong> Faster-Whisper, TinyLLaMA, Flask, WebSockets, PyTorch</p>
+        <a href="https://github.com/sriram7737/AI-Call-Center-Prototype-Faster-Whisper-TinyLLaMA-Demo" class="btn" target="_blank">View on GitHub</a>
+      </div>
+
+      <div class="card">
+        <h4>TRASHPRED – Waste Classification</h4>
+        <p>
+          Smart waste classifier that distinguishes recyclable vs non-recyclable items using transformer-based image models.
+        </p>
+        <details>
+          <summary>View Details</summary>
+          <ul>
+            <li>Curated and labeled a custom waste image dataset with varied lighting and backgrounds.</li>
+            <li>Applied data augmentation and fine-tuning to reach >90% accuracy on test sets.</li>
+            <li>Exposed a FastAPI-based inference endpoint ready for integration into smart-bin systems.</li>
+          </ul>
+        </details>
+        <p style="margin-top:0.5rem;"><strong>Tech:</strong> PyTorch, Transformers, FastAPI, Docker</p>
+        <a href="https://github.com/sriram7737/TRASHPRED-" class="btn" target="_blank">View on GitHub</a>
+      </div>
+
+      <div class="card">
+        <h4>Multi-Source Data Analytics Chatbot</h4>
+        <p>
+          A multimodal analytics assistant that ingests CSVs, Excel, PDFs, DOCX, JSON, images, and DICOM files to generate insights and visualizations.
+        </p>
+        <details>
+          <summary>View Details</summary>
+          <ul>
+            <li>Implemented automatic detection of file types and parsing into structured pandas DataFrames.</li>
+            <li>Generated histograms, bar charts, and pie charts for quick EDA from natural-language prompts.</li>
+            <li>Integrated a GPT-2-based text model for open-domain Q&A with configurable safety filters.</li>
+          </ul>
+        </details>
+        <p style="margin-top:0.5rem;"><strong>Tech:</strong> Python, Flask, GPT-2, pandas, matplotlib, DICOM processing</p>
+        <a href="https://github.com/sriram7737/Multi-Source-Data-Analytics-Chatbot" class="btn" target="_blank">View on GitHub</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- EDUCATION (LAST) -->
+  <section class="slide-right">
+    <h2>Education & Publications</h2>
+    <div class="cards-grid">
+      <div class="card">
+        <h4>Master of Science in Computer Science</h4>
+        <p><strong>Lawrence Technological University</strong> – Southfield, MI</p>
+        <p>Graduated: Dec 2024 | GPA: 3.67 / 4.0</p>
+        <p>
+          <strong>Relevant Coursework:</strong> Deep Learning, Natural Language Processing, Computer Vision,
+          Advanced Algorithms, Data Mining.
+        </p>
+        <p>
+          <strong>Publication:</strong><br>
+<a href="https://doi.org/10.1109/CCWC62904.2025.10903815" 
+   target="_blank" 
+   style="color: var(--primary-color); font-weight: 600;">
+   IEEE CCWC 2025 – “Empowering Healthcare Data Systems with an Innovative Chatbot Application Utilizing Python and Advanced Generative AI Models”
+</a>
+
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="slide-left">
+    <h2>Get in Touch</h2>
+    <p style="text-align:center;">
+      Open to AI/ML engineering roles, VLM/LLM research collaborations, and quantum-inspired ML projects.
+    </p>
+    <div class="contact-links">
+      <a href="mailto:sriramrampelli15@gmail.com" title="Email">
+        <img src="https://unpkg.com/simple-icons@v8/icons/gmail.svg" alt="Gmail">
+      </a>
+      <a href="https://github.com/sriram7737" target="_blank" title="GitHub">
+        <img src="https://unpkg.com/simple-icons@v8/icons/github.svg" alt="GitHub">
+      </a>
+      <a href="https://linkedin.com/in/sriram-rampelli" target="_blank" title="LinkedIn">
+        <img src="https://unpkg.com/simple-icons@v8/icons/linkedin.svg" alt="LinkedIn">
+      </a>
+      <a href="https://huggingface.co/sriram7737" target="_blank" title="Hugging Face">
+        <img src="https://unpkg.com/simple-icons@latest/icons/huggingface.svg" alt="HuggingFace">
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    © 2025 Sriram Rampelli — AI/ML Engineer | Vision-Language Models | Generative AI.
+  </footer>
+
+</div>
+
+<!-- JS FOR ANIMATIONS -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  // Hero fade
+  const hero = document.getElementById("hero");
+  setTimeout(() => hero.classList.add("visible"), 200);
+
+  // Slide + fade animations
+  const animatedSections = document.querySelectorAll(
+    ".slide-left, .slide-right, .fade-up"
+  );
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add("visible");
     });
-  </script>
+  }, { threshold: 0.2 });
+
+  animatedSections.forEach(section => observer.observe(section));
+
+  // Card reveal + soft stagger
+  const cards = document.querySelectorAll(".card");
+  const cardObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry, idx) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible-card");
+        entry.target.style.transitionDelay = `${idx * 100}ms`;
+      }
+    });
+  }, { threshold: 0.2 });
+  cards.forEach(card => cardObserver.observe(card));
+});
+</script>
+
 </body>
 </html>
