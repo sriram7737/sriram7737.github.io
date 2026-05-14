@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -236,16 +237,17 @@
   <section class="slide-right">
     <h2>Core Skills & Technologies</h2>
     <ul class="skills-list">
+      <!-- Updated skills to reflect expanded capabilities from recent roles -->
       <li>Python, PyTorch, TensorFlow</li>
-      <li>Transformers, LLaMA, TinyLlama</li>
-      <li>LoRA, QLoRA, 4-bit Quantization</li>
-      <li>Vision-Language Models, CLIP, VLM Adapters</li>
-      <li>RAG Systems, LangChain, Vector DBs</li>
-      <li>BioBERT, Clinical NER, OCR Pipelines</li>
-      <li>Flask, FastAPI, REST APIs</li>
-      <li>AWS (EC2, S3, Lambda)</li>
-      <li>Docker, CI/CD (GitHub Actions)</li>
-      <li>SQL, PostgreSQL, Data Pipelines</li>
+      <li>GPT/LLaMA/BioBERT &amp; Transformers</li>
+      <li>LoRA/QLoRA, 4‑bit &amp; mixed precision, GGUF/AWQ</li>
+      <li>RAG Models, LlamaIndex, LangChain, vector DBs (Pinecone, FAISS, Weaviate)</li>
+      <li>spaCy, NLTK, Clinical NLP &amp; OCR</li>
+      <li>CLIP &amp; Vision-Language Models (TinyLlama‑VLM, VLM Adapters)</li>
+      <li>AWS &amp; GCP (BigQuery, Airflow), Kubernetes, Docker, Terraform, CI/CD</li>
+      <li>FastAPI, Flask, MQTT, serverless &amp; offline‑first edge systems (BLE, mmWave, UWB)</li>
+      <li>SQL &amp; PostgreSQL, data pipelines, dataset governance &amp; MLOps</li>
+      <li>Reinforcement Learning, transfer learning &amp; prompt engineering</li>
     </ul>
   </section>
 
@@ -262,6 +264,19 @@
   <section class="slide-right">
     <h2>Professional Experience</h2>
     <div class="cards-grid">
+
+      <!-- Providence Wave Group -->
+      <div class="card">
+        <h4>AI Engineer – Providence Wave Group</h4>
+        <p><em>Dec 2025 – Present | Detroit, MI</em></p>
+        <ul style="font-size:0.9rem; padding-left:1.1rem; margin-top:0.3rem;">
+          <li>Architected a hybrid Edge AI backend combining a priority‑based rules engine and quantized LLMs to process ~60 sensor events per minute with &lt;200&nbsp;ms latency.</li>
+          <li>Deployed 4‑bit quantized LLMs on edge hardware, cutting memory usage by ~70% and improving time‑to‑first‑token by 40%.</li>
+          <li>Built a context‑aware ingestion pipeline for BLE sensor events, storing history in SQL and injecting context into prompts; implemented an offline‑first architecture preserving 30&nbsp;days of data.</li>
+          <li>Standardized API contracts across 15+ endpoints using strict JSON schemas, accelerating feature delivery by ~30%.</li>
+          <li>Led dataset governance and RAG enhancements, migrating sensor datasets to a new schema, building BM25 scoring and deterministic retrieval tie‑breakers, and ensuring safe rollouts via comprehensive tests.</li>
+        </ul>
+      </div>
 
       <!-- BCG / GenAI Simulation -->
       <div class="card">
@@ -533,5 +548,4 @@ document.addEventListener("DOMContentLoaded", () => {
 
 </body>
 </html>
-
 
